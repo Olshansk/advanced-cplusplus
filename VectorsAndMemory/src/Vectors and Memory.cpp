@@ -12,28 +12,60 @@ using namespace std;
 
 int main() {
 
-	vector<double> numbers(0);
 
-	cout << "Size: " << numbers.size() << endl;
+    vector<int> numbers(20);
 
-	int capacity = numbers.capacity();
-	cout << "Capacity: " << capacity << endl;
+    cout << "size: " << numbers.size() << endl;
+    cout << "capacity: " << numbers.capacity() << endl;
 
-	for(int i=0; i<10000; i++) {
+    while (numbers.capacity() == 20) {
+        numbers.push_back(10);
+    }
 
-		if(numbers.capacity() != capacity) {
-			capacity = numbers.capacity();
-			cout << "Capacity: " << capacity << endl;
-		}
+    cout << "size: " << numbers.size() << endl;
+    cout << "capacity: " << numbers.capacity() << endl;
 
-		numbers.push_back(i);
-	}
+    numbers.resize(1000);
 
-	numbers.reserve(100000);
-	cout << numbers[2] << endl;
-	cout << "Size: " << numbers.size() << endl;
-	cout << "Capacity: " << numbers.capacity() << endl;
+    cout << "size: " << numbers.size() << endl;
+    cout << "capacity: " << numbers.capacity() << endl;
 
+    numbers.clear();
 
-	return 0;
+    cout << "size: " << numbers.size() << endl;
+    cout << "capacity: " << numbers.capacity() << endl;
+
+    return 0;
 }
+
+//#include <iostream>
+//#include <vector>
+//using namespace std;
+//
+//int main() {
+//
+//	vector<double> numbers(0);
+//
+//	cout << "Size: " << numbers.size() << endl;
+//
+//	int capacity = numbers.capacity();
+//	cout << "Capacity: " << capacity << endl;
+//
+//	for(int i=0; i<10000; i++) {
+//
+//		if(numbers.capacity() != capacity) {
+//			capacity = numbers.capacity();
+//			cout << "Capacity: " << capacity << endl;
+//		}
+//
+//		numbers.push_back(i);
+//	}
+//
+//	numbers.reserve(100000);
+//	cout << numbers[2] << endl;
+//	cout << "Size: " << numbers.size() << endl;
+//	cout << "Capacity: " << numbers.capacity() << endl;
+//
+//
+//	return 0;
+//}

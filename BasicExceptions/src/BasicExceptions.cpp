@@ -7,6 +7,39 @@
 //============================================================================
 
 #include <iostream>
+using namespace std;
+
+void mightGoWrong() {
+    bool error = false;
+    bool error2 = true;
+
+    if(error) {
+        throw "Const char error";
+    }
+
+    if(error2) {
+        throw string("String error");
+    }
+}
+
+int main() {
+    try {
+        mightGoWrong();
+    }
+    catch(int e) {
+        cout << "Error code: " << e << endl;
+    }
+    catch (char const * e) {
+        cout << "Char error code: " << e << endl;
+    }
+    catch (string &e) {
+        cout << "String error code: " << e << endl;
+    }
+    return 0;
+}
+
+/*
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -49,4 +82,4 @@ int main() {
 	cout << "Still running" << endl;
 
 	return 0;
-}
+}*/

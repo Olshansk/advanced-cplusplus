@@ -7,35 +7,67 @@
 //============================================================================
 
 #include <iostream>
-#include <exception>
-
 using namespace std;
 
 class MyException: public exception {
 public:
-	virtual const char* what() const throw() {
-		return "Something bad happened!";
-	}
+    virtual const char* what() const throw();
 };
 
 class Test {
+
 public:
-	void goesWrong() {
-		throw MyException();
-	}
+    void throwException() {
+        throw MyException();
+    }
 };
+
+const char* MyException::what() const throw(){
+    return "This is a custom exception";
+}
 
 int main() {
 
-	Test test;
+    Test t;
+    try {
+        t.throwException();
+    } catch (MyException &e) {
+        cout << e.what() << endl;
+    }
 
-	try {
-		test.goesWrong();
-	}
-	catch(MyException &e) {
-		cout << e.what() << endl;
-	}
-
-
-	return 0;
+    return 0;
 }
+
+//#include <iostream>
+//#include <exception>
+//
+//using namespace std;
+//
+//class MyException: public exception {
+//public:
+//	virtual const char* what() const throw() {
+//		return "Something bad happened!";
+//	}
+//};
+//
+//class Test {
+//public:
+//	void goesWrong() {
+//		throw MyException();
+//	}
+//};
+//
+//int main() {
+//
+//	Test test;
+//
+//	try {
+//		test.goesWrong();
+//	}
+//	catch(MyException &e) {
+//		cout << e.what() << endl;
+//	}
+//
+//
+//	return 0;
+//}
