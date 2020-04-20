@@ -10,7 +10,7 @@
 #include "Complex.h"
 
 using namespace std;
-using namespace caveofprogramming;
+using namespace olshansky;
 
 int main() {
 
@@ -21,7 +21,9 @@ int main() {
 
 	c3 = c2;
 
-	cout << c2 << ": " << c3 << endl;
+	cout << c1 << " " << c2 << endl;
+
+//	cout << c2 << ": " << c3 << endl;
 
 	return 0;
 }
