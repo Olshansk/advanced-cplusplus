@@ -18,6 +18,11 @@ namespace olshansky {
 
         double getReal() const;
         double getImaginary() const;
+
+        bool operator == (const Complex& other);
+        bool operator != (const Complex& other);
+
+        Complex operator * ();
     };
 
     std::ostream& operator << (std::ostream& out, const Complex& complex);

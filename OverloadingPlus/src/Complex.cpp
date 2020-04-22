@@ -27,6 +27,19 @@ namespace olshansky {
         return imaginary;
     }
 
+
+    bool Complex::operator == (const Complex& other) {
+        return this->getImaginary() == other.getImaginary() && this->getReal() == other.getReal();
+    }
+
+    bool Complex::operator != (const Complex& other) {
+        return this->getImaginary() != other.getImaginary() || this->getReal() != other.getReal();
+    }
+
+    Complex Complex::operator * () {
+        return Complex(this->getReal(), -this->getImaginary());
+    }
+
     std::ostream& operator << (std::ostream& out, const Complex& c) {
         out << "(" << c.getReal() << " + " << c.getImaginary() << "i)" << std::flush;
         return out;

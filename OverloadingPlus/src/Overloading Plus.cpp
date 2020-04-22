@@ -13,6 +13,12 @@ int main() {
     cout << c2 << endl;
     cout << c1 + c2 << endl;
     cout << c1 + 5 + c2 + 10 << endl;
+
+    cout << "Is equal: " << (c1 == c2) << endl;
+    cout << "Is not equal: " << (c1 != c2) << endl;
+
+    cout << "Conjugate of " << c1 << " is " << (*c1) << endl;
+
     return 0;
 }
 ////============================================================================
