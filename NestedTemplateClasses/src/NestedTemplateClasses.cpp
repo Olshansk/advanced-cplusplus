@@ -1,5 +1,6 @@
 #include <iostream>
 #include "ring.h"
+#include "ring2.h"
 
 using namespace std;
 
@@ -13,6 +14,15 @@ int main(int argc, char* argv[]) {
 
     for (int i = 0; i < r.size(); i++) {
         cout << r.get(i) << endl;
+    }
+
+    ring2<string> r2(2);
+    r2.add("first");
+    r2.add("second");
+    r2.add("third");
+
+    for (int i = 0; i < r2.size(); i++) {
+        cout << r2.get(i) << endl;
     }
 
     return 0;

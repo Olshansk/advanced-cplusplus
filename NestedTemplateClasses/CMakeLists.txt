@@ -13,4 +13,4 @@ project(${ProjectId})
 file(GLOB project_sources src/*.cpp)
 file(GLOB project_headers src/*.h src/*.hpp)
 
-add_executable(${ProjectId} ${project_sources} ${project_headers})
+add_executable(${ProjectId} ${project_sources} ${project_headers} src/ring2.h)
