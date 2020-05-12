@@ -12,6 +12,7 @@ int main(int argc, char* argv[]) {
     r.add(3);
     r.add(4);
 
+    cout << "\n" <<endl;
     for (int i = 0; i < r.size(); i++) {
         cout << r.get(i) << endl;
     }
@@ -21,9 +22,21 @@ int main(int argc, char* argv[]) {
     r2.add("second");
     r2.add("third");
 
+    cout << "\n" <<endl;
     for (int i = 0; i < r2.size(); i++) {
         cout << r2.get(i) << endl;
     }
+
+    cout << "\n" <<endl;
+    for (ring2<string>::iterator2 it = r2.begin(); it != r2.end(); it++) {
+        cout << *it << endl;
+    }
+
+    cout << "\n" <<endl;
+    for (string s : r2) {
+        cout << s << endl;
+    }
+
 
     return 0;
 }
