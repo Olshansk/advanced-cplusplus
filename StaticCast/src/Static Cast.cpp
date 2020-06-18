@@ -1,42 +1,77 @@
-//============================================================================
-// Name        : Static.cpp
-// Author      : 
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
-
 #include <iostream>
+
 using namespace std;
 
-class Parent {
+class Person {
 public:
-	void speak() {
-		cout << "parent!" << endl;
-	}
+  void print() {
+    cout << "testing" << endl;
+  }
 };
 
-class Brother: public Parent {
-
+class Man: public Person {
 };
 
-class Sister: public Parent {
+int main(int argc, char* argv[]) {
+  Person p;
+  Man m;
 
-};
+  Person *pp = &p;
+  cout << pp << endl;
 
-int main() {
+  Man *mp = static_cast<Man*>(&p);
+  cout << mp << endl;
 
-	Parent parent;
-	Brother brother;
+  Person *pp2 = static_cast<Person*>(&m);
+  cout << pp2 << endl;
 
-	Parent *ppb = &brother;
+  Person&& prv = static_cast<Person&&>(p);
+  cout << &prv << endl;
+  prv.print();
 
-	Brother *pbb = static_cast<Brother *>(ppb);
-
-	cout << pbb << endl;
-
-	Parent &&p = static_cast<Parent &&>(parent);
-	p.speak();
-
-	return 0;
+  return 0;
 }
+
+
+// //============================================================================
+// // Name        : Static.cpp
+// // Author      :
+// // Version     :
+// // Copyright   : Your copyright notice
+// // Description : Hello World in C++, Ansi-style
+// //============================================================================
+//
+// #include <iostream>
+// using namespace std;
+//
+// class Parent {
+// public:
+// 	void speak() {
+// 		cout << "parent!" << endl;
+// 	}
+// };
+//
+// class Brother: public Parent {
+//
+// };
+//
+// class Sister: public Parent {
+//
+// };
+//
+// int main() {
+//
+// 	Parent parent;
+// 	Brother brother;
+//
+// 	Parent *ppb = &brother;
+//
+// 	Brother *pbb = static_cast<Brother *>(ppb);
+//
+// 	cout << pbb << endl;
+//
+// 	Parent &&p = static_cast<Parent &&>(parent);
+// 	p.speak();
+//
+// 	return 0;
+// }
