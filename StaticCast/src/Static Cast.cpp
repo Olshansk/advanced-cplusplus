@@ -1,3 +1,4 @@
+// https://repl.it/@DanielOlshansky/MeagerStandardBinary#main.cpp
 #include <iostream>
 
 using namespace std;
@@ -28,6 +29,12 @@ int main(int argc, char* argv[]) {
   Person&& prv = static_cast<Person&&>(p);
   cout << &prv << endl;
   prv.print();
+
+  // Works:
+  Man *mp2 = dynamic_cast<Man*>(&m);
+
+  // Doesn't work:
+  Man *mp1 = dynamic_cast<Man*>(&p);
 
   return 0;
 }
