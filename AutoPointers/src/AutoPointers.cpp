@@ -5,38 +5,69 @@ using namespace std;
 
 class Test {
 public:
-	Test() {
-		cout << "created" << endl;
-	}
+  Test() {
+    cout << "Initialize" << endl;
+  }
 
-	void greet() {
-		cout << "Hello" << endl;
-	}
+  void print() {
+    cout << "Printing" << endl;
+  }
 
-	~Test() {
-		cout << "destroyed" << endl;
-	}
+  ~Test() {
+    cout << "Destroy" << endl;
+  }
 };
 
-class Temp {
-private:
-	unique_ptr<Test[]> pTest;
+int main(int argc, char* argv[]) {
 
-public:
-	Temp(): pTest(new Test[2]) {
+  std::unique_ptr<Test> t;
+  t->print();
 
-	}
-};
+  std::unique_ptr<Test[]> tArray(new Test[3]);
+  tArray[2].print();
 
-int main() {
-
-	Temp temp;
-
-	unique_ptr<Test[]> pTest(new Test[2]);
-
-	pTest[1].greet();
-
-	cout << "Finished" << endl;
-
-	return 0;
+  return 0;
 }
+
+// #include <iostream>
+// #include <memory>
+//
+// using namespace std;
+//
+// class Test {
+// public:
+// 	Test() {
+// 		cout << "created" << endl;
+// 	}
+//
+// 	void greet() {
+// 		cout << "Hello" << endl;
+// 	}
+//
+// 	~Test() {
+// 		cout << "destroyed" << endl;
+// 	}
+// };
+//
+// class Temp {
+// private:
+// 	unique_ptr<Test[]> pTest;
+//
+// public:
+// 	Temp(): pTest(new Test[2]) {
+//
+// 	}
+// };
+//
+// int main() {
+//
+// 	Temp temp;
+//
+// 	unique_ptr<Test[]> pTest(new Test[2]);
+//
+// 	pTest[1].greet();
+//
+// 	cout << "Finished" << endl;
+//
+// 	return 0;
+// }
